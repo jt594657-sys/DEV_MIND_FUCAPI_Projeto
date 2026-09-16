@@ -1,1 +1,1 @@
-# DEV_MIND_FUCAPI_Projeto
+jogo desenvolvido para semana de cursos na Fucapi logica de programação
