@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevMine | Aprenda Lógica de programação</title>
+  <link rel="stylesheet" href="./Index-style.css">
+</head>
+<body>
+  <div id="customModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div id="modalIcon" class="modal-icon">🚀</div>
+      <h3 id="modalTitle">Notificação</h3>
+      <p id="modalMessage">Mensagem do sistema.</p>
+      <button class="btn" onclick="DevMineApp.closeModal()">Entendido</button>
+    </div>
+  </div>
+  <div class="wrapper">
+    <main id="loginPage" class="login-container">
+      <div class="logo-icon">👾</div>
+      <h2>DevMine</h2>
+      <p class="text-muted">Aprenda lógica de programação de forma interativa e conquiste o ranking global.</p>
+      <div class="form-group">
+        <label for="username">Seu Codinome de Dev:</label>
+        <input type="text" id="username" placeholder="Ex: NBI-NOTURNO" autocomplete="off">
+      </div>
+      <button class="btn btn-full" onclick="DevMineApp.handleLogin()">Acessar Terminal</button>
+    </main>
+    <div id="appContainer" class="app-container hidden">
+      <header class="main-header">
+        <div class="header-logo">👾DevMine</div>
+        <div class="header-actions"><span id="displayUser" class="user-badge">Dev: </span><button class="btn-logout" onclick="DevMineApp.handleLogout()">Sair</button></div>
+      </header>
+      <nav class="tab-navigation">
+        <button id="nav-lab" class="tab-btn active" onclick="DevMineApp.switchTab('lab')">💻 Laboratório</button>
+        <button id="nav-ranking" class="tab-btn" onclick="DevMineApp.switchTab('ranking')">🏆 Ranking</button>
+      </nav>
+      <main class="content-area">
+        <section id="tab-lab" class="tab-content">
+          <div id="welcomeCard" class="card text-center">
+            <h2>Desafios de Lógica</h2>
+            <p class="text-muted">Selecione a linguagem que deseja treinar hoje:</p>
+            <div class="lang-selector-container"><select id="langSelect" class="lang-dropdown"><option value="javascript">JavaScript</option><option value="python">Python</option><option value="cpp">C++</option><option value="c">C</option></select></div>
+            <p class="text-muted">Responda corretamente para acumular pontos e subir 🔝 no ranking!</p>
+            <p class="text-muted">nunca desista da sua ideia 😊</p>
+            <button id="startBtn" class="btn btn-lg" onclick="DevMineApp.startQuiz()">Iniciar Laboratório</button>
+          </div>
+          <div id="quizStats" class="quiz-stats hidden"><div class="stat-box">Pontos: <span id="quizScoreDisplay" class="text-accent">0</span></div><div class="stat-box">Vidas: <span id="quizAttempts" class="lives-display">❤️❤️❤️</span></div><div class="progress-wrapper"><div class="progress-track"><div id="progressBar" class="progress-bar"><span id="eagle" class="eagle-avatar">🦅</span></div></div></div></div>
+          <div id="quizDisplay" class="quiz-card hidden"><div class="code-header"><span id="terminalTitle">Terminal</span></div><pre><code id="quizQuestionCode"></code></pre><div id="quizHint" class="hint-box hidden"></div><div id="quizOptions" class="options-grid"></div></div>
+        </section>
+        <section id="tab-ranking" class="tab-content hidden"><div class="card"><div class="ranking-header"><h2>melhores Desenvolvedores 🥇</h2><button class="btn btn-danger btn-sm" onclick="DevMineApp.limparRanking()">Limpar Ranking</button></div><div class="table-container"><table class="ranking-table"><thead><tr><th>Posição</th><th>Dev</th><th>Pontuação</th></tr></thead><tbody id="rankingBody"></tbody></table></div></div></section>
+      </main>
+    </div>
+  </div>
+  <script src="./Index.JS"></script>
+</body>
+</html>
